@@ -1,0 +1,11 @@
+{
+    "extends": [
+        "airbnb",
+        "airbnb/hooks"
+    ],
+    "env": {
+        "browser": true,
+        "node": true,
+        "jest/globals": true
+    }
+}
