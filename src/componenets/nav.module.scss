@@ -1,0 +1,114 @@
+@import 'main.scss';
+
+// $background-color-primary: #444400;
+$navHeight: 3rem;
+$navPadding: .5rem;
+
+.topNav {
+    position: relative;
+    background-color: $background-nav;
+    box-shadow: 0 1px 2px;
+    height: $navHeight;
+    padding: $navPadding;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    z-index: 0;
+}
+
+.topNav a {
+    display: none;
+    align-self: center;
+    margin-right: 1rem;
+}
+
+.topNav a:first-of-type {
+    display: inline;
+    text-align: center;
+}
+
+.navImg {
+    height: $navHeight;
+    width: auto;
+    object-fit: contain;
+}
+
+.menuBtn {
+    background-color: transparent;
+    color: white;
+    border-style: none;
+    outline: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: $navHeight;
+    padding: $navPadding;
+    margin-left: .5rem;
+    font-size: 2rem;
+}
+
+.sideNav {
+    height: 100%;
+    width: 0;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: $background-nav;
+    overflow-x: hidden;
+    transition: width 0.3s;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+}
+
+.sideNavOpen {
+    width: 16rem !important;
+    box-shadow: 1px 0 2px;
+}
+
+.sideNav a {
+
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 0;
+    background-color: #000000;
+    opacity: 0%;
+    z-index: 1;
+    transition: opacity .3s
+}
+
+.overlayDisplayed {
+    height: 100vh!important;
+    width: 100vw!important;
+    opacity: 50%;
+    display: inline;
+}
+
+// Medium devices (tablets, 768px and up)
+@media only screen and (min-width: 768px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media only screen and (min-width: 1200px) {
+    .topNav a {
+        display: inline;
+    }
+
+    .topNav {
+        justify-content: flex-start;
+    }
+
+    .menuBtn {
+        display: none;
+    }
+
+    .sideNav {
+        display: none;
+    }
+}
