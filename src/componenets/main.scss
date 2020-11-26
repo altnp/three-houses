@@ -1,6 +1,29 @@
 $background-primary: #353941;
 $background-nav: #26282b;
+$color: #5f85db;
+$color-2: #90b8f8;
+$overlay: #00000080;
+$overlay-hidden: #00000000;
+
+$icon-btn: #eeeeee;
+$icon-btn-hover: #bbbbbb;
 
 body {
     background-color: $background-primary;
+}
+
+.iconBtn {
+    background-color: transparent;
+    color: white;
+    border-style: none;
+    outline: none;
+    top: 0;
+    left: 0;
+    line-height: 3rem;
+    padding: .5rem;
+    font-size: 2rem;
+}
+
+.iconBtn:hover {
+    color: #bbbbbb;
 }

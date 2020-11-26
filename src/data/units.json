@@ -1,5 +1,16 @@
-{
-    "edelgard": {
+[
+    {
+        "name": "edelgard",
+        "house": "Black Eagles",
+        "baseStats": {
+
+        },
+        "growthRates" : {
+
+        }
+    },
+    {
+        "name": "bernadetta",
         "house": "Black Eagles",
         "baseStats": {
 
@@ -8,4 +19,4 @@
 
         }
     }
-}
+]

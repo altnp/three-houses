@@ -47,6 +47,24 @@ $navPadding: .5rem;
     font-size: 2rem;
 }
 
+.menuBtn:hover {
+    color: #bbbbbb;
+}
+
+.closeBtn {
+    background-color: transparent;
+    color: white;
+    border-style: none;
+    outline: none;
+    align-self: flex-end;
+    margin: .5rem .5rem 0px 0px;
+    font-size: 2rem;
+}
+
+.closeBtn:hover {
+    color: #bbbbbb;
+}
+
 .sideNav {
     height: 100%;
     width: 0;
@@ -76,17 +94,16 @@ $navPadding: .5rem;
     left: 0;
     height: 0;
     width: 0;
-    background-color: #000000;
-    opacity: 0%;
+    background-color: $overlay-hidden;
     z-index: 1;
-    transition: opacity .3s
+    transition: background-color .3s
 }
 
 .overlayDisplayed {
     height: 100vh!important;
     width: 100vw!important;
-    opacity: 50%;
     display: inline;
+    background-color: $overlay;
 }
 
 // Medium devices (tablets, 768px and up)

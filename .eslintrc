@@ -1,12 +1,28 @@
 {
     "extends": [
         "airbnb",
-        "airbnb/hooks"
+        "airbnb/hooks",
+        "prettier",
+        "react-app",
+        "react-app/jest"
+    ],
+    "plugins": [
+        "prettier"
     ],
     "env": {
         "browser": true,
         "node": true,
         "jest": true
     },
-    "ignorePatterns": ["reportWebVitals.js"]
+    "ignorePatterns": [
+        "reportWebVitals.js"
+    ],
+    "rules": {
+        "prettier/prettier": [
+            "error"
+        ],
+        "react/prop-types": [
+            "warn"
+        ]
+    }
 }

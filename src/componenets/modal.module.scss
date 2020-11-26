@@ -1,0 +1,48 @@
+@import 'main.scss';
+
+.modal {
+    background-color: $overlay-hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    overflow: auto;
+    display: none;
+}
+
+.modalOpen {
+    display: flex;
+    background-color: $overlay;
+}
+
+.modalContent {
+    background-color: $background-primary;
+    color: white;
+    z-index: 3;
+    position: relative;
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    margin: auto 1rem;
+}
+
+.closeBtn {
+    align-self: flex-end;
+    margin: 0 .5rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .modalContent {
+        width: 80%;
+        margin: auto auto;
+        flex: 0 0 auto
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media only screen and (min-width: 1200px) {
+
+}

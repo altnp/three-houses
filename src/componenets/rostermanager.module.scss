@@ -1,0 +1,70 @@
+@import 'main.scss';
+
+.masterDetail {
+    display: flex;
+    flex: row nowrap;
+    overflow-x: hidden;
+}
+
+.master {
+    transition: transform .3s;
+    width: 100vw;
+    flex: none;
+    box-sizing: border-box;
+}
+
+.detail {
+    transform: translate(0vw);
+    transition: transform .3s;
+    width: 100vw;
+    flex: none;
+    box-sizing: border-box;
+}
+
+.detailOpen .master {
+    transform: translate(-100vw);
+}
+
+.detailOpen .detail {
+    transform: translate(-100vw);
+}
+
+.iconBtn {
+    font-size: 1rem;
+    line-height: 1;
+    padding: .5rem 0rem;
+}
+
+.iconBtn > span {
+    vertical-align: middle;
+}
+
+@media only screen and (min-width: 768px) {
+    .master {
+        width: auto;
+        min-width: 30vw;
+        flex: 0 1 auto;
+        transform: translate(0vw);
+        transition: transform 0s;
+    }
+
+    .detail {
+        width: auto;
+        flex: 1 1 auto;
+        transform: translate(0vw);
+        transition: transform 0s;
+    }
+
+    .detailOpen .master {
+        transform: translate(0);
+    }
+
+    .detailOpen .detail {
+        transform: translate(0);
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media only screen and (min-width: 1200px) {
+
+}
