@@ -1,5 +1,6 @@
 $background-primary: #36393f;
-$background-secondary: #292b2f;
+$background-tertiary: #292b2f;
+$background-secondary: #2f3136;
 $background-nav: #202225;
 $color: #5f85db;
 $color-2: #90b8f8;
@@ -41,6 +42,7 @@ body {
     font-size: 2rem;
     height: 4rem;
     border-style: none;
+    outline: none;
 }
 
 .btn:hover,

@@ -6,7 +6,7 @@
     overflow-x: hidden;
     min-height: calc(100vh - 4rem)
 }
-
+\
 .master {
     transition: transform .3s;
     width: 100vw;
@@ -14,6 +14,7 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    background-color: $background-tertiary;
 }
 
 .detail {
@@ -22,10 +23,15 @@
     width: 100vw;
     flex: none;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: $background-secondary;
+    position: relative;
 }
 
 .detailOpen .master {
-    transform: translate(-100vw);
+    transform: translate(-10);
 }
 
 .detailOpen .detail {
@@ -36,14 +42,38 @@
     @extend .iconBtn;
     font-size: 1rem;
     line-height: 1;
-    padding: .5rem 0rem;
+    padding: .75rem 0rem 0rem .5rem;
 }
 
 .iconBtnBack > span {
     vertical-align: middle;
 }
 
+.unitList {
+    list-style-type: none;
+    padding: 2rem;
+    font-size: 1.2rem;
+}
+
+.unitList > li {
+    margin: 0;
+    position: relative;
+}
+
+.detailHeader {
+    align-self: flex-start;
+}
+
 @media only screen and (min-width: 768px) {
+    .detailHeader {
+        width: 80%;
+        align-self: center;
+    }
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media only screen and (min-width: 1200px) {
     .master {
         width: 25vw;
         min-width: 25rem;
@@ -67,19 +97,4 @@
     .detailOpen .detail {
         transform: translate(0);
     }
-}
-
-.unitList {
-    list-style-type: none;
-    padding: 2rem;
-    font-size: 1.2rem;
-}
-
-.unitList > li {
-    margin: 0;
-    position: relative;
-}
-// Extra large devices (large desktops, 1200px and up)
-@media only screen and (min-width: 1200px) {
-
 }

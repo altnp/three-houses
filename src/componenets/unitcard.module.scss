@@ -19,7 +19,7 @@
     border-radius: 50%;
     position: relative;
     z-index: 1;
-    height: 5rem;
+    height: 4rem;
 }
 
 .blackeagles > img:first-of-type {
@@ -33,7 +33,6 @@
 .goldendeer > img:first-of-type {
     border: $goldendeer solid .3rem;
 }
-
 
 .blackeagles {
     background-image: linear-gradient(to right, $blackeagles, rgba(0,0,0,0));

@@ -3,7 +3,6 @@
 .roster {
     display: flex;
     flex-direction: column;
-    background-color: $background-secondary;
     flex: 1 1 auto;
     z-index: 0;
 }
@@ -34,4 +33,17 @@
 
 .unitLink {
     text-decoration: none;
+}
+
+@media only screen and (min-width: 768px) {
+    .roster {
+        width: 80%;
+        align-self: center;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .roster {
+        width: 100%;
+    }
 }

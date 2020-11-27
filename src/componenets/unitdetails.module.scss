@@ -1,0 +1,39 @@
+@import 'main.scss';
+
+.unitImage {
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+    height: 4rem;
+}
+
+.unitImage.blackeagles {
+    border: $blackeagles solid .3rem;
+}
+
+.unitImage.bluelions {
+    border: $bluelions solid .3rem;
+}
+
+.unitImage.goldendeer {
+    border: $goldendeer solid .3rem;
+}
+
+.container {
+    align-self: center;
+    flex: 1 1 auto;
+    padding: .75rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media only screen and (min-width: 768px) {
+    .container {
+        width: 80%;
+        align-self: center;
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media only screen and (min-width: 1200px) {
+}

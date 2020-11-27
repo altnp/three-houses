@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useParams, useHistory } from 'react-router';
+import * as uuid from 'uuid';
 import useScreenSize, { SCREENSIZE } from '../hooks/useScreenSize';
 import Roster from './Roster';
 import UnitDetail from './UnitDetail';
@@ -14,7 +15,13 @@ function RosterManager() {
   const history = useHistory();
   const { id } = useParams();
 
-  const [roster, setRoster] = useState([]);
+  const initRosterId = localStorage.getItem('currentRosterId');
+  let initRosterState = [];
+  if (initRosterId) {
+    initRosterState = JSON.parse(localStorage.getItem(initRosterId)) || [];
+  }
+
+  const [roster, setRoster] = useState(initRosterState);
   const baseUnits = unitsJson;
   const [rosterBuffer, setRosterBuffer] = useState([]);
   const addUnit = (unitName) => {
@@ -42,7 +49,17 @@ function RosterManager() {
     return () => {};
   }, [modalOpen]);
 
-  const detailOpen = id && screenSize === SCREENSIZE.MOBILE;
+  useEffect(() => {
+    let rosterId = localStorage.getItem('currentRosterId');
+    if (!rosterId) {
+      rosterId = uuid.v4();
+      localStorage.setItem('currentRosterId', rosterId);
+    }
+
+    localStorage.setItem(rosterId, JSON.stringify(roster));
+  }, [roster]);
+
+  const detailOpen = id && screenSize !== SCREENSIZE.DESKTOP;
   const selectedUnit = id && roster.find((ru) => ru.name === id);
 
   if (modalOpen && detailOpen) {
@@ -67,13 +84,15 @@ function RosterManager() {
       </div>
 
       <div className={styles.detail}>
-        {screenSize === SCREENSIZE.MOBILE && (
-          <button type="button" onClick={() => history.push(routes.home)} className={styles.iconBtnBack}>
-            <span className="material-icons">keyboard_arrow_left</span>
-            <span>
-              <b>Units</b>
-            </span>
-          </button>
+        {screenSize !== SCREENSIZE.DESKTOP && (
+          <div className={styles.detailHeader}>
+            <button type="button" onClick={() => history.push(routes.home)} className={styles.iconBtnBack}>
+              <span className="material-icons">keyboard_arrow_left</span>
+              <span>
+                <b>Roster</b>
+              </span>
+            </button>
+          </div>
         )}
         {selectedUnit && <UnitDetail unit={selectedUnit} />}
       </div>
@@ -121,7 +140,7 @@ function RosterManager() {
               setModalOpen(false);
             }}
           >
-            Done
+            Save
           </button>
         </div>
       </div>
