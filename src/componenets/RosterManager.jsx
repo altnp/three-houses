@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router';
 import * as uuid from 'uuid';
 import useScreenSize, { SCREENSIZE } from '../hooks/useScreenSize';
@@ -16,7 +16,7 @@ function RosterManager() {
   const initRosterId = localStorage.getItem('currentRosterId');
   let initRosterState = [];
   if (initRosterId) {
-    initRosterState = JSON.parse(localStorage.getItem(initRosterId)) || [];
+    initRosterState = JSON.parse(localStorage.getItem(initRosterId) || '[]');
   }
 
   const [roster, setRoster] = useState(initRosterState);

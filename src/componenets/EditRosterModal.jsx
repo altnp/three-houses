@@ -6,7 +6,10 @@ import UnitCard from './UnitCard';
 
 function EditRosterModal({ open, onRequestClose, roster, onRosterEdit }) {
   const baseUnits = unitsJson;
+
   const [rosterBuffer, setRosterBuffer] = useState(roster);
+  useEffect(() => setRosterBuffer(roster), [roster]);
+
   const addUnit = (unitName) => {
     setRosterBuffer((r) => [...r, baseUnits.filter((u) => u.name === unitName)[0]]);
   };
