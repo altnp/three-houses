@@ -1,15 +1,22 @@
-$background-primary: #353941;
-$background-nav: #26282b;
+$background-primary: #36393f;
+$background-secondary: #292b2f;
+$background-nav: #202225;
 $color: #5f85db;
 $color-2: #90b8f8;
 $overlay: #00000080;
 $overlay-hidden: #00000000;
 
+$goldendeer: #ebcc57;
+$bluelions: #1f3487;
+$blackeagles: #87172f;
+
 $icon-btn: #eeeeee;
 $icon-btn-hover: #bbbbbb;
+$text-primary: #eeeeee;
 
 body {
     background-color: $background-primary;
+    min-height: 100vh;
 }
 
 .iconBtn {
@@ -17,13 +24,27 @@ body {
     color: white;
     border-style: none;
     outline: none;
-    top: 0;
-    left: 0;
     line-height: 3rem;
     padding: .5rem;
     font-size: 2rem;
 }
 
-.iconBtn:hover {
-    color: #bbbbbb;
+.iconBtn:hover, .iconBtn:focus {
+    color: $icon-btn-hover;
+}
+
+.btn {
+    background-color: $bluelions;
+    color: $icon-btn;
+    line-height: 3rem;
+    padding: .5rem;
+    font-size: 2rem;
+    height: 4rem;
+    border-style: none;
+}
+
+.btn:hover,
+.btn:focus {
+    filter: brightness(110%);
+    font-size: 2.1rem;
 }

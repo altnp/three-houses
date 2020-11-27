@@ -11,7 +11,7 @@ function App() {
       <Nav />
       <Switch>
         <Route path={routes.about} component={About} />
-        <Route path={[`${routes.home}:id`, routes.home]} component={RosterManager} />
+        <Route path={[`${routes.home}/:id`, routes.home]} component={RosterManager} />
       </Switch>
     </Router>
   );

@@ -4,6 +4,7 @@
     display: flex;
     flex: row nowrap;
     overflow-x: hidden;
+    min-height: calc(100vh - 4rem)
 }
 
 .master {
@@ -11,6 +12,8 @@
     width: 100vw;
     flex: none;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
 .detail {
@@ -29,20 +32,22 @@
     transform: translate(-100vw);
 }
 
-.iconBtn {
+.iconBtnBack {
+    @extend .iconBtn;
     font-size: 1rem;
     line-height: 1;
     padding: .5rem 0rem;
 }
 
-.iconBtn > span {
+.iconBtnBack > span {
     vertical-align: middle;
 }
 
 @media only screen and (min-width: 768px) {
     .master {
-        width: auto;
-        min-width: 30vw;
+        width: 25vw;
+        min-width: 25rem;
+        max-width: 40rem;
         flex: 0 1 auto;
         transform: translate(0vw);
         transition: transform 0s;
@@ -64,6 +69,16 @@
     }
 }
 
+.unitList {
+    list-style-type: none;
+    padding: 2rem;
+    font-size: 1.2rem;
+}
+
+.unitList > li {
+    margin: 0;
+    position: relative;
+}
 // Extra large devices (large desktops, 1200px and up)
 @media only screen and (min-width: 1200px) {
 

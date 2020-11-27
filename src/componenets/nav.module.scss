@@ -13,7 +13,7 @@ $navPadding: .5rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    z-index: 0;
+    z-index: 1;
 }
 
 .topNav a {
@@ -47,7 +47,7 @@ $navPadding: .5rem;
     font-size: 2rem;
 }
 
-.menuBtn:hover {
+.menuBtn:hover, .menuBtn:focus {
     color: #bbbbbb;
 }
 
@@ -61,14 +61,14 @@ $navPadding: .5rem;
     font-size: 2rem;
 }
 
-.closeBtn:hover {
+.closeBtn:hover, .closeBtn:focus {
     color: #bbbbbb;
 }
 
 .sideNav {
     height: 100%;
     width: 0;
-    z-index: 2;
+    z-index: 3;
     top: 0;
     left: 0;
     background-color: $background-nav;
@@ -95,7 +95,7 @@ $navPadding: .5rem;
     height: 0;
     width: 0;
     background-color: $overlay-hidden;
-    z-index: 1;
+    z-index: 2;
     transition: background-color .3s
 }
 

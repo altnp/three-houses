@@ -6,6 +6,8 @@ import UnitDetail from './UnitDetail';
 import styles from './rostermanager.module.scss';
 import modalStyles from './modal.module.scss';
 import unitsJson from '../data/units.json';
+import routes from '../routes';
+import UnitCard from './UnitCard';
 
 function RosterManager() {
   const screenSize = useScreenSize();
@@ -14,11 +16,12 @@ function RosterManager() {
 
   const [roster, setRoster] = useState([]);
   const baseUnits = unitsJson;
+  const [rosterBuffer, setRosterBuffer] = useState([]);
   const addUnit = (unitName) => {
-    setRoster((r) => [...r, baseUnits.filter((u) => u.name === unitName)[0]]);
+    setRosterBuffer((r) => [...r, baseUnits.filter((u) => u.name === unitName)[0]]);
   };
   const removeUnit = (unitName) => {
-    setRoster((r) => r.filter((u) => u.name !== unitName));
+    setRosterBuffer((r) => r.filter((u) => u.name !== unitName));
   };
 
   const modalRef = useRef();
@@ -42,22 +45,37 @@ function RosterManager() {
   const detailOpen = id && screenSize === SCREENSIZE.MOBILE;
   const selectedUnit = id && roster.find((ru) => ru.name === id);
 
+  if (modalOpen && detailOpen) {
+    setModalOpen(false);
+  }
+
+  if (id && !selectedUnit) {
+    history.push(routes.home);
+  }
+
   return (
     <div className={`${styles.masterDetail} ${detailOpen ? styles.detailOpen : ''}`}>
       <div className={styles.master}>
-        <Roster onAddUnit={() => setModalOpen(true)} onUnitRemove={removeUnit} roster={roster} />
+        <Roster
+          onAddUnit={() => {
+            setRosterBuffer(roster);
+            setModalOpen(true);
+          }}
+          onUnitRemove={removeUnit}
+          roster={roster}
+        />
       </div>
 
       <div className={styles.detail}>
         {screenSize === SCREENSIZE.MOBILE && (
-          <button type="button" onClick={() => history.push('/')} className={styles.iconBtn}>
+          <button type="button" onClick={() => history.push(routes.home)} className={styles.iconBtnBack}>
             <span className="material-icons">keyboard_arrow_left</span>
             <span>
               <b>Units</b>
             </span>
           </button>
         )}
-        <UnitDetail unit={selectedUnit} />
+        {selectedUnit && <UnitDetail unit={selectedUnit} />}
       </div>
 
       <div className={`${modalStyles.modal} ${modalOpen ? modalStyles.modalOpen : ''}`} aria-hidden="true">
@@ -69,22 +87,42 @@ function RosterManager() {
           >
             close
           </button>
-          <ul>
+          <ul className={styles.unitList}>
             Roster:
-            {roster.map((u) => (
-              <li key={u.name}>{u.name}</li>
+            {rosterBuffer.map((u) => (
+              <li key={u.name}>
+                <UnitCard
+                  unit={u}
+                  actionBtnContent={<span className={`material-icons ${styles.iconBtn}`}>close</span>}
+                  action={() => removeUnit(u.name)}
+                />
+              </li>
             ))}
           </ul>
-          <ul>
+          <ul className={styles.unitList}>
             Available Units:
             {baseUnits
-              .filter((u) => !roster.some((ru) => ru.name === u.name))
+              .filter((u) => !rosterBuffer.some((ru) => ru.name === u.name))
               .map((u) => (
-                <li key={u.name} onClick={() => addUnit(u.name)} aria-hidden="true">
-                  {u.name}
+                <li key={u.name} aria-hidden="true">
+                  <UnitCard
+                    unit={u}
+                    actionBtnContent={<span className={`material-icons ${styles.iconBtn}`}>add</span>}
+                    action={() => addUnit(u.name)}
+                  />
                 </li>
               ))}
           </ul>
+          <button
+            type="submit"
+            className={styles.btn}
+            onClick={() => {
+              setRoster(rosterBuffer);
+              setModalOpen(false);
+            }}
+          >
+            Done
+          </button>
         </div>
       </div>
     </div>

@@ -3,4 +3,35 @@
 .roster {
     display: flex;
     flex-direction: column;
+    background-color: $background-secondary;
+    flex: 1 1 auto;
+    z-index: 0;
+}
+
+.addUnitBtn {
+    @extend .btn;
+    align-self: flex-end;
+    margin: .75rem;
+    border-radius: 5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    line-height: 2rem;
+}
+
+.activeUnit {
+    position: relative;
+}
+
+.activeUnit::before {
+    border-left: #eeeeee solid .25rem;
+    content: '';
+    position: absolute;
+    top: 1.5rem;
+    left: 0;
+    height: calc(100% - 2.25rem);
+    width: 1px;
+}
+
+.unitLink {
+    text-decoration: none;
 }

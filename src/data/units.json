@@ -1,7 +1,9 @@
 [
     {
         "name": "edelgard",
-        "house": "Black Eagles",
+        "displayName": "Edelgard",
+        "house": "blackeagles",
+        "startingLevel": 55,
         "baseStats": {
 
         },
@@ -11,7 +13,30 @@
     },
     {
         "name": "bernadetta",
-        "house": "Black Eagles",
+        "displayName": "Bernadetta",
+        "house": "blackeagles",
+        "baseStats": {
+
+        },
+        "growthRates" : {
+
+        }
+    },
+    {
+        "name": "dimitri",
+        "displayName": "Dimitri",
+        "house": "bluelions",
+        "baseStats": {
+
+        },
+        "growthRates" : {
+
+        }
+    },
+    {
+        "name": "claude",
+        "displayName": "Claude",
+        "house": "goldendeer",
         "baseStats": {
 
         },

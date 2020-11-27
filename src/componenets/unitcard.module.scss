@@ -1,0 +1,107 @@
+@import 'main.scss';
+
+.unitCard {
+    background-color: $background-primary;
+    border-radius: .75rem;
+    margin: .75rem .75rem 0 .75rem;
+    padding: .5rem;
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0));
+    display: flex;
+}
+
+.unitCard:hover, .unitCard:focus {
+    filter: brightness(110%);
+}
+
+.unitCard > img:first-child {
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+    height: 5rem;
+}
+
+.blackeagles > img:first-of-type {
+    border: $blackeagles solid .3rem;
+}
+
+.bluelions > img:first-of-type {
+    border: $bluelions solid .3rem;
+}
+
+.goldendeer > img:first-of-type {
+    border: $goldendeer solid .3rem;
+}
+
+
+.blackeagles {
+    background-image: linear-gradient(to right, $blackeagles, rgba(0,0,0,0));
+}
+
+.bluelions {
+    background-image: linear-gradient(to right, $bluelions, rgba(0,0,0,0));
+}
+
+.goldendeer  {
+    background-image: linear-gradient(to right, $goldendeer, rgba(0,0,0,0));
+}
+
+.bgBanner {
+    position: absolute;
+    width: 110%;
+    max-width: 25rem;
+    right: -5%;
+    top: -5%;
+    height: auto;
+    opacity: 0.1;
+    transform: translate(0, -20%);
+    mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+.goldendeer > img:last-of-type {
+    transform: translate(0, -27%);
+}
+
+.unitCard:hover > .bgBanner,
+.unitCard:focus > .bgBanner {
+    width: 130%;
+    max-width: 35rem;
+    right: -15%;
+    top: -15%;
+    transition: .2s;
+}
+
+.unitProps {
+    color: $text-primary;
+    display: flex;
+    flex-direction: column;
+    padding: .75rem;
+    justify-content: center;
+}
+
+.unitProps > div:first-of-type {
+    font-size: 1.5rem;
+}
+
+.unitProps > div {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.actionBtn {
+    position: absolute;
+    top: 0;
+    right: .5rem;
+    height: 100%;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    display: none;
+}
+
+.unitCard:hover > .actionBtn,
+.unitCard:focus > .actionBtn,
+.actionBtn:focus {
+    display: inline;
+}
