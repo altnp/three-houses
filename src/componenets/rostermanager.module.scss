@@ -1,14 +1,14 @@
-@import 'main.scss';
+@import "main.scss";
 
 .masterDetail {
     display: flex;
     flex: row nowrap;
     overflow-x: hidden;
-    min-height: calc(100vh - 4rem)
+    min-height: calc(100vh - 4rem);
 }
-\
+
 .master {
-    transition: transform .3s;
+    transition: transform 0.3s;
     width: 100vw;
     flex: none;
     box-sizing: border-box;
@@ -19,7 +19,7 @@
 
 .detail {
     transform: translate(0vw);
-    transition: transform .3s;
+    transition: transform 0.3s;
     width: 100vw;
     flex: none;
     box-sizing: border-box;
@@ -42,7 +42,7 @@
     @extend .iconBtn;
     font-size: 1rem;
     line-height: 1;
-    padding: .75rem 0rem 0rem .5rem;
+    padding: 0.75rem 0rem 0rem 0.5rem;
 }
 
 .iconBtnBack > span {
@@ -58,7 +58,6 @@
         width: 80%;
         align-self: center;
     }
-
 }
 
 // Extra large devices (large desktops, 1200px and up)
