@@ -3,7 +3,7 @@ import { useParams, useHistory } from 'react-router';
 import * as uuid from 'uuid';
 import useScreenSize, { SCREENSIZE } from '../hooks/useScreenSize';
 import Roster from './Roster';
-import UnitDetail from './UnitDetail';
+import UnitDetails from './UnitDetails';
 import styles from './rostermanager.module.scss';
 import routes from '../routes';
 import EditRosterModal from './EditRosterModal';
@@ -61,7 +61,7 @@ function RosterManager() {
             </button>
           </div>
         )}
-        {selectedUnit && <UnitDetail unit={selectedUnit} />}
+        {selectedUnit && <UnitDetails unit={selectedUnit} />}
       </div>
 
       <EditRosterModal

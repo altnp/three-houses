@@ -28,10 +28,11 @@
     align-items: flex-start;
     background-color: $background-secondary;
     position: relative;
+    overflow: hidden;
 }
 
 .detailOpen .master {
-    transform: translate(-10);
+    transform: translate(-100vw);
 }
 
 .detailOpen .detail {
@@ -67,22 +68,22 @@
         min-width: 25rem;
         max-width: 40rem;
         flex: 0 1 auto;
-        transform: translate(0vw);
+        transform: none;
         transition: transform 0s;
     }
 
     .detail {
         width: auto;
         flex: 1 1 auto;
-        transform: translate(0vw);
+        transform: none;
         transition: transform 0s;
     }
 
     .detailOpen .master {
-        transform: translate(0);
+        transform: none;
     }
 
     .detailOpen .detail {
-        transform: translate(0);
+        transform: none;
     }
 }

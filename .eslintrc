@@ -22,7 +22,7 @@
             "error"
         ],
         "react/prop-types": [
-            "warn"
+            "off"
         ]
     }
 }

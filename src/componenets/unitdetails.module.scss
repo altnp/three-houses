@@ -4,7 +4,8 @@
     border-radius: 50%;
     position: relative;
     z-index: 1;
-    height: 4rem;
+    height: 8rem;
+    margin-right: .75rem;
 }
 
 .unitImage.blackeagles {
@@ -19,12 +20,72 @@
     border: $goldendeer solid .3rem;
 }
 
+.unitName {
+    font-size: 2rem;
+    font-weight: 600;
+    color: $text-primary
+}
+
 .container {
     align-self: center;
     flex: 1 1 auto;
     padding: .75rem;
     width: 100%;
     box-sizing: border-box;
+    overflow: hidden;
+    align-self: flex-start;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: .75rem;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.bgBanner {
+    position: absolute;
+    width: 110%;
+    right: -5%;
+    top: 0;
+    height: auto;
+    opacity: 0.1;
+    transform: translate(0, -10%);
+    mask-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,1));
+    z-index: 0;
+    pointer-events: none;
+}
+
+input[type=text] {
+    background-color: $background-light;
+    border-radius: .3rem;
+    z-index: 1;
+    position: relative;
+    outline: none;
+    color: $text-primary;
+    font-size: 1rem;
+    width: 2rem;
+    text-align: center;
+    height: 37px;
+    border: none;
+}
+
+input[type=text]:focus {
+    background-color: $background-lighter;
+}
+
+label {
+    color: $text-primary;
+    font-size: 1rem;
+}
+
+label > input[type=text] {
+    margin-left: .5rem;
 }
 
 @media only screen and (min-width: 768px) {
